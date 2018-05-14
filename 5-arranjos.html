@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>1 - Variáveis, constantes, entrada e saída</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/portugol-studio-dark.css">
+
+		<!-- Custom -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+		<link rel="manifest" href="images/favicon/site.webmanifest">
+		<link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#2980B9">
+		<meta name="msapplication-TileColor" content="#2980B9">
+		<meta name="theme-color" content="#2980B9">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Lógica de Programação</h1>
+					<h2>Arranjos: vetores e matrizes</h2>
+					<p>Prof. Marco Antonio Andrade</p>
+				</section>
+				<section class="left">
+					<h2>Sumário</h2>
+					<ul>
+						<li>Vetores</li>
+						<li>Matrizes</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Vetores</h2>
+					<p>É um conjunto de elementos de dados de mesmo tipo que pode ser acessado por meio de índices (PUGA & RISSETI, 2016).</p>
+					<img src="images/vetores.png" alt="Representação gráfica de um vetor" style="border: 0">
+				</section>	
+				<section>
+					<h2>Declaração de um vetor</h2>
+					<pre><code class="hlsj portugol" data-trim contenteditable>
+    cadeia nomes[5]
+    inteiro idades[6]
+                    </code></pre>
+                    <div class="alert-blue fragment fade-up">O vetor <b>nomes</b> poderá recebar 5 valores, do tipo cadeia, em cada uma de suas posições: 0, 1, 2, 3 e 4.</div>
+                </section>
+                <section>
+					<h2>Atribuição de valores a um vetor</h2>
+					<pre><code class="hlsj portugol" data-trim contenteditable>
+    nomes[0] = "Maria a Silva"
+    nomes[1] = "José da Silva"
+
+    escreva(nomes[0])
+					</code></pre>
+                </section>
+                <section>
+					<h2>Percorrendo um vetor</h2>
+					<pre><code class="hlsj portugol" data-trim contenteditable>
+	para (inteiro i = 0; i < 5; i++){
+		escreva(nomes[i])
+	}
+					</code></pre>
+				</section>
+				<section data-markdown class="left">
+					<textarea data-template>
+						## Exercícios
+						* Crie um algoritmo que receba 5 notas de alunos do Ensino Médio do IFRO. Ao final, imprima a média aritmética das notas.
+						* Crie um algoritmo que receba o nome, a idade e o salário de 7 funcionários. Ao final, imprima os dados dos funcionários.
+						* 
+					</textarea>
+				</section>						
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			function getParameterByName(name, url) {
+				if (!url) url = window.location.href;
+				name = name.replace(/[\[\]]/g, '\\$&');
+				var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+				results = regex.exec(url);
+				if (!results) return null;
+				if (!results[2]) return '';
+				return decodeURIComponent(results[2].replace(/\+/g, ' '));
+			}
+			var role = getParameterByName('role');
+			role = role === 'master' ? role : 'client';
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: false, // centraliza os slides
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				slideNumber: false,
+				width: "100%",
+				height: "100%",
+				margin: 0.1,
+				minScale: 1,
+				maxScale: 1,
+				/*
+				multiplex: {
+					secret: null,
+					id: null,
+					url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh'
+				},*/
+				dependencies: [
+					{ src: 'lib/js/socket.io.min.js', async: true },
+          			{ src: 'plugin/multiplex/' + role + '.js', async: true },
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
