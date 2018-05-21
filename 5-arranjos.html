@@ -85,7 +85,49 @@
 						* Crie um algoritmo que receba 5 notas de alunos do Ensino Médio do IFRO. Ao final, imprima a média aritmética das notas.
 						* Crie um algoritmo que receba o nome, a idade e o salário de 7 funcionários. Ao final, imprima os dados dos funcionários. <!-- .element: class="fragment" data-fragment-index="1" -->
 					</textarea>
-				</section>						
+				</section>
+
+				<section>
+					<h2>Matriz</h2>
+					<p>É um conjunto de elementos de dados de mesmo tipo que pode ser acessado por meio de mais de um índice (PUGA & RISSETI, 2016).</p>
+					<img src="images/matriz.png" alt="Representação gráfica de uma matriz" style="border: 0" class="fragment fade-up">
+				</section>
+				<section>
+					<h2>Declaração de uma matriz</h2>
+					<pre><code class="hlsj portugol" data-trim contenteditable>
+	real produtos[2][3]
+					</code></pre>
+					<div class="alert-blue">Declaração de uma matriz com 2 linhas e 3 colunas para representar a variação de preco de um produto em vários mercados</div>
+				</section>
+				<section>
+						<h2>Atribuindo valores a uma matriz</h2>
+						<pre><code class="hlsj portugol" data-trim contenteditable>
+	produtos[0][0] = 23.00
+	produtos[0][1] = 24.00
+	produtos[0][2] = 22.50
+	produtos[1][0] = 12.30
+	produtos[1][1] = 12.50
+	produtos[1][2] = 13.00
+						</code></pre>
+					</section>
+				<section>
+					<h2>Percorrendo uma matriz</h2>
+					<pre><code class="hlsj portugol" data-trim contenteditable>
+	para (inteiro linha = 0; linha < 2; linha++){
+		para (inteiro coluna = 0; coluna < 3; coluna++){
+			escreva(produtos[linha][coluna])
+		}
+	}
+					</code></pre>
+					<div class="alert-blue">Precisamos percorrer cada linha, e em cada linha percorrer cada coluna da matriz.</div>
+				</section>
+				<section data-markdown class="left">
+					<textarea data-template>
+						## Exercícios
+						* Crie um algoritmo que receba 2 notas, entre 0 e 10, de 5 alunos e calcule a média aritmética. Assim, crie uma matriz de 5 x 3, onde cada linha representa um aluno e cada coluna representa uma nota, sendo a 3ª coluna para armazenar a média.
+						* Crie um algoritmo que escreva uma matriz 10 X 3 com números inteiros sorteados. <!-- .element: class="fragment" data-fragment-index="1" -->
+					</textarea>
+				</section>
 			</div>
 		</div>
 
