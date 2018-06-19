@@ -49,6 +49,7 @@
 				<ul>
 					<li>Procedimentos</li>
 					<li>Funções</li>
+					<li>Escopo de variáveis</li>
 					<li>Passagem de parâmetros</li>
 				</ul>
 			</section>
@@ -139,6 +140,91 @@
 					</textarea>
 			</section>
 
+			<section>
+				<h2>Escopo de variáveis</h2>
+				<ul>
+					<li>Uma variável pode ser <b>local</b> ou <b>global</b>.</li>
+					<li class="fragment" data-fragment-index="1">As variáveis locais podem ser acessadas somente na função/procedimento que estão declaradas.</li>
+					<li class="fragment" data-fragment-index="2">As variáveis globais podem ser acessadas em qualquer local do algoritmo.</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Escopo de variáveis</h2>
+				<pre><code class="hlsj portugol" data-trim contenteditable>
+	real media = 0.0
+
+	funcao calcular_media_aritmetica(real num1, real num2)
+	{
+		media = (num1 + num2) / 2
+	}
+	funcao calcular_media_ponderada(real num1, real num2)
+	{
+		media = (num1 * 0.4 + num2 * 0.6) / 2
+	}
+	funcao inicio ()
+	{
+		caracter opcao
+		escreva("Selecione a opção: ")
+		leia(opcao)
+		se (opcao == 'a')
+			calcular_media_aritmetica(7.0, 9.0)
+		senao se (opcao == 'p')
+			calcular_media_ponderada(7.0, 9.0)
+		escreva(media)
+	}
+				</code></pre>
+			</section>
+
+			<section>
+				<h2>Passagem de parâmetros</h2>
+				<ul>
+					<li>Pode ser por <b>valor</b> ou por <b>referência</b>.</li>
+					<li class="fragment" data-fragment-index="1">Na passagem por valor os valores informados como parâmetros são copiados para dentro do módulo, criando-se assim uma nova variável local com o conteúdo.</li>
+					<li class="fragment" data-fragment-index="2">Na passagem por referência os valores informados são acessados, independente de onde estejam, e assim qualquer mudança no módulo é refletida.</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Passagem de parâmetros por valor</h2>
+				<pre><code class="hlsj portugol" data-trim contenteditable>
+	funcao real calcular_media (real num1, real num2)
+	{
+		retorne (num1 + num2) / 2
+	}
+	funcao inicio()
+	{
+		real num1 = 10.0, num2 = 8.0
+		escreva(calcular_media(num1, num2))
+		escreva(calcular_media(7.0, 5.0))
+	}
+				</code></pre>
+				<div class="alert-blue fragment fade-up">São criadas 2 variáveis locais na função calcular_media: num1 e num2, do tipo real, e os valores passados como parâmetros são copiados para dentro dessas variáveis.</div>
+			</section>
+			<section>
+				<h2>Passagem de parâmetros por referência</h2>
+				<pre><code class="hlsj portugol" data-trim contenteditable>
+	funcao real calcular_media (real &num1, real &num2)
+	{
+		num1 += 1
+		retorne (num1 + num2) / 2
+	}
+	funcao inicio()
+	{
+		real num1 = 10.0, num2 = 8.0
+		escreva(calcular_media(num1, num2))
+		escreva(num1)
+		escreva(num2)
+	}
+				</code></pre>
+				<div class="alert-blue fragment fade-up">As 2 variáveis locais da função inicio são acessadas pela função calcular_media.</div>
+			</section>
+			<section data-markdown class="left">
+				<textarea data-template>
+					## Exercícios
+					* Crie um algoritmo que defina um função que receba dois números inteiros e verifique se o primeiro é divisível pelo segundo, exibindo o resultado no programa principal.
+					* Crie um algoritmo que defina um função... <!-- .element: class="fragment" data-fragment-index="1" -->
+					* Crie um algoritmo que defina um função... <!-- .element: class="fragment" data-fragment-index="2" -->
+				</textarea>
+			</section>
 
 		</div>
 	</div>
